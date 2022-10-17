@@ -1,0 +1,41 @@
+// In The Name of ALLAH SUBHANAHU WA TA’ALA //
+#include<bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+using namespace std;
+
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	ll tst;
+	cin >> tst;
+	while (tst--)
+	{
+		ll n, mx=0;
+		cin >> n;
+		ll arr[10001]={0};
+		for (ll i = 1; i <= n; i++)
+		{
+			ll temp;
+			cin>>temp;
+			arr[temp]=i; // array of indices of elements
+		}
+
+		// finding co-prime and filtering max value of their indices
+		for (ll i = 1; i <= 1000; i++)
+		{
+			for (ll j = i; j <= 1000 and arr[i]; j++)
+			{
+					if(arr[i]!=0 && arr[j]!=0 && __gcd(i,j)==1) mx = max(mx,arr[i]+arr[j]); // if(arr[i] && arr[j] && __gcd(i,j)==1) because gcd of 0(zero) is undefined
+			}
+		}
+
+		cout<< (mx ? mx: -1)<<endl;
+	}
+
+
+	return 0;
+}
