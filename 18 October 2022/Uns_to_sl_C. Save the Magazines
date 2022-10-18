@@ -1,0 +1,53 @@
+// In The Name of ALLAH SUBHANAHU WA TA’ALA //
+#include<bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+using namespace std;
+
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int tst;
+	cin >> tst;
+	while (tst--)
+	{
+		int n;
+		ll sum = 0;
+		cin >> n;
+		string s, s2;
+		cin >> s;
+		s2 = s;
+		int arr[n];
+		for (int i = 0; i < n; i++)
+		{
+			cin >> arr[i];
+		}
+
+		// applying condition
+		for (int i = 0; i < s.size(); i++)
+		{
+			if (s[i] == '0')
+			{
+				for (int j = i + 1; j < n; j++)
+				{
+					if (s[j] == '0')break;
+					if (arr[i] > arr[j])swap(arr[i], arr[j]);
+				}
+
+			}
+		}
+
+		// calculatin and printing sum
+		for (int i = 0; i < n; i++)
+		{
+			if (s[i] == '1')sum = sum + arr[i];
+		}
+		cout << sum << endl;
+	}
+
+
+	return 0;
+}
