@@ -1,0 +1,60 @@
+// In The Name of ALLAH SUBHANAHU WA TA’ALA //
+#include<bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+using namespace std;
+
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int tst;
+	cin >> tst;
+	while (tst--)
+	{
+		int n;
+		cin >> n;
+		char ch;
+		cin >> ch;
+		string s,s2;
+		cin >> s;
+		s2 = s + s;
+
+		if (ch == 'g')cout << 0 << endl;
+		else
+		{
+			int mx = 0;
+			for (int i = 0; i < s2.size(); i++)
+			{
+				if (s2[i] == ch)
+				{
+					// int mn;
+					// for (int j = i + 1; j < s2.size(); j++)
+					// {
+					// 	if (s2[j] == 'g')
+					// 	{
+					// 		mn = j - i;
+					// 		break;
+					// 	}
+					// }
+					// mx = max(mx, mn);
+
+					int cnt=0;
+					while(s2[i]!='g' && i<s2.size())
+					{
+						cnt++;
+						i++;
+					}
+					mx = max(mx,cnt);
+				}
+			}
+			cout << mx << endl;
+		}
+
+	}
+
+
+	return 0;
+}
